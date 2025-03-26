@@ -43,12 +43,13 @@ class AddUserCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        // Récupérer la valeur des arguments
         $firstname = $input->getArgument('firstname');
         $lastname = $input->getArgument('lastname');
         $email = $input->getArgument('email');
         $password = $input->getArgument('password');
 
-        // Récupérer l'utilisateur dans une variable (comment faire ?)
+        // Récupérer l'utilisateur dans une variable
         $alreadyExistingUser = $this->userRepository->findOneBy(['email' => $email]);
 
         // Vérifier si le compte existe déjà
